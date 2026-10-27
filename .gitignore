@@ -5,3 +5,11 @@ dist/
 *.log
 .DS_Store
 .cache/
+
+# Local tooling state — not part of the project
+.commandcode/
+
+# Editor
+.vscode/
+.idea/
+*.tsbuildinfo
