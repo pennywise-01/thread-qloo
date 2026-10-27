@@ -4,8 +4,7 @@
 about. It returns a day-by-day route — one neighbourhood a day, stops ordered so you can walk them —
 plus the obvious places it skipped and why.
 
-Built for the Qloo Agentic Hackathon. Runs on a local ranking by default; set `QLOO_MODE=live` and
-Qloo discovers the places.
+Every place comes from the Qloo taste graph. Built for the Qloo Agentic Hackathon.
 
 ---
 
@@ -34,19 +33,74 @@ Thread makes three different bets:
   everywhere. `price_level` itself is a local-market tier, which is what a traveller wants.
 - **Interests** — twelve, and they adapt to the city (see below).
 
+## How it decides
+
+```mermaid
+flowchart TD
+    A["City · days · budget · interests"] --> B["Resolve each interest to a signal"]
+
+    B --> B1["Entity anchor<br/>jazz → Miles Davis<br/><i>qloo api search</i>"]
+    B --> B2["Category tag<br/>coffee → coffee_shop<br/><i>qloo exec find_tags</i>"]
+
+    B1 --> C["Discover places in the city"]
+    B2 --> C
+
+    C --> C1["<i>insights --signal-entities</i><br/>25 per interest"]
+    C --> C2["<i>insights --filter-tags</i><br/>20 per interest"]
+
+    C1 --> D["Merge by entity id<br/>coverage = how many interests surfaced it"]
+    C2 --> D
+
+    D --> E["Keep places whose <i>primary_genre</i> matches<br/>loose tags are ignored"]
+    E --> F["Price filter<br/>unknown price is never dropped"]
+    F --> G["Cluster by distance<br/>anchor on the densest, drop anything past 12 km"]
+    G --> H["Assign stops to<br/>morning / afternoon / evening"]
+    H --> I["Pick one neighbourhood per day<br/>penalise repeated shapes"]
+    I --> J["Order stops · compute travel<br/>walk under 1.2 km, transit beyond"]
+    J --> K["Skip list with reasons"]
+    K --> L(["Itinerary"])
+```
+
+Three details that matter:
+
+**The window assignment is exhaustive, not greedy.** If the best record shop takes the afternoon, a
+second shop that also only opens in the afternoon is locked out — unless the first one moves to the
+evening. A greedy pass gets this wrong; with three windows it is cheap to search.
+
+**Long trips revisit neighbourhoods.** A city has fewer walkable clusters than a two-week trip has
+days, so the planner works from whatever venues are still unused and penalises a district it just
+used. It also tries packing three stops a day first, and only thins the days out if the requested
+number cannot otherwise be filled — a two-week request should not quietly become ten days. If the
+city genuinely runs out, the plan is short and the UI says so rather than padding it.
+
+**Skipped places are the honest part.** They are the highest-scoring venues that did not make the
+route, each with the reason: in a neighbourhood that is not on your route, or the slot went to a
+better fit.
+
 ## Filters that adapt to the city
 
-The interest list is not hand-curated per city and it is not a fixed twelve either. It is measured.
+The interest list is not hand-curated per city. It is measured, once per city, and cached.
 
-```
-12 interests → find_tags once → tag URNs (cached to .cache/)
-             → one insights call per city with all 12 tags as --filter-tags
-             → count how many of the 50 sampled places carry each tag
+```mermaid
+sequenceDiagram
+    autonumber
+    participant B as Browser
+    participant S as Server
+    participant Q as Qloo
+
+    B->>S: GET /api/thread/availability?city=Lisbon
+    S->>Q: exec find_tags ×12 (cached to .cache/)
+    Q-->>S: tag URNs
+    S->>Q: api insights --filter-tags [12 tags] --take 50
+    Q-->>S: 50 places
+    S->>S: count places carrying each interest's tag
+    S-->>B: supply per interest + sample size
+    Note over S: cached 30 minutes per city,<br/>concurrent requests de-duplicated
 ```
 
 `--filter-tags` is an OR (verified: coffee + middle-eastern returned twelve coffee shops while
 middle-eastern alone returned one), and it works without a taste signal, so this costs **one call per
-city**, cached 30 minutes.
+city**.
 
 What it measures, in practice:
 
@@ -71,47 +125,35 @@ unknown as mid-range would silently delete them the moment you pick `Budget`. So
 `Any` never filters. A filtered-out place can never appear in the skip list claiming it was "over
 budget", because nothing over budget reaches that stage.
 
-## How it decides
-
-```
-score      each place by how many of your interests it covers
-schedule   assign places to morning / afternoon / evening, exhaustively
-pick       one neighbourhood per day, penalising repeated shapes
-route      order stops by window, add walking times
-skip       keep the best of what did not fit, with a reason
-```
-
-Three details that matter:
-
-**The window assignment is exhaustive, not greedy.** If the best record shop takes the afternoon, a
-second shop that also only opens in the afternoon is locked out — unless the first one moves to the
-evening. A greedy pass gets this wrong; with three windows it is cheap to search.
-
-**Long trips revisit neighbourhoods.** A city has fewer walkable clusters than a two-week trip has
-days, so the planner works from whatever venues are still unused and penalises a district it just
-used. It also tries packing three stops a day first, and only thins the days out if the requested
-number cannot otherwise be filled — a two-week request should not quietly become ten days. If the
-catalog genuinely runs out, the plan is short and the UI says so rather than padding it.
-
-**Skipped places are the honest part.** They are the highest-scoring venues that did not make the
-route, each with the reason: in a neighbourhood that is not on your route, or the slot went to a
-better fit.
-
-## Quick start
+## Setup
 
 ```bash
-npm install
-cp .env.example .env      # QLOO_MODE=mock is the default
+git clone https://github.com/pennywise-01/thread-qloo.git
+cd thread-qloo
+npm ci
+
+npm install --global @qloo/qloo-harness
+qloo setup --qloo            # event credential
+qloo setup --status          # expect "Qloo data: ready"
+
+cp .env.example .env         # base URL is pre-set; add QLOO_API_KEY or rely on the harness
 npm run build
-npm start                 # http://localhost:8787
+npm start                    # http://localhost:8787
 ```
 
 Development: `npm run dev` (client :5173, API :8787).
 
+The key stays on the server. It is never sent to the browser and no `VITE_` variable reads it.
+`QLOO_BASE_URL` and `QLOO_TRUSTED_BASE_URL` already point at `https://hackathon.api.qloo.com` in
+`.env.example`.
+
+`npm run qloo:doctor` prints the raw harness responses the adapter parses, which is the first thing to
+run if the shapes ever change.
+
 ## Verify without a browser
 
 ```bash
-npm run smoke          # six itineraries, asserts the structural invariants
+npm run smoke          # six itineraries against a fixed fixture, no credential needed
 npm run cities:check   # probes every city, writes reports/city-coverage.json
 ```
 
@@ -136,40 +178,7 @@ shipped as options that fail.
 | Reykjavik | 9 | coffee 6 · wine 4 |
 | Marrakech | 4 | coffee 3 · art 2 |
 
-## Going live
-
-The key stays on the machine or the server. It never reaches the browser bundle.
-
-```bash
-npm install --global @qloo/qloo-harness
-qloo setup --qloo
-qloo setup --status          # "Qloo data: ready"
-npm run qloo:doctor          # prints the raw shapes the adapter parses
-```
-
-Then set `QLOO_MODE=live`. `QLOO_BASE_URL` and `QLOO_TRUSTED_BASE_URL` already point at
-`https://hackathon.api.qloo.com` in `.env.example`.
-
-### What live mode actually does
-
-It stops using the curated catalog. Qloo discovers the places:
-
-```
-interest → entity signal   jazz → Miles Davis, vinyl → Blue Note Records
-         ↓ qloo api search  resolve the name to an entity id
-         ↓ qloo api insights  25 places in the chosen city, ranked by that signal
-category → tag             coffee → find_tags → urn:tag:…coffee
-         ↓ qloo api insights  filtered by the tag, ranked by every entity signal
-         ↓
-merge by entity id → a place surfaced by two interests is a two-of-three match
-cluster by distance → days you can walk, not wards (Setagaya is 8 km wide)
-```
-
-One call per interest, run in parallel. A three-interest plan takes about 11 seconds cold and is
-instant afterwards (results cached 10 minutes per city). The UI shows the resolved signals and the
-call count.
-
-### What it found
+## What it found
 
 Real places, real coordinates, real neighbourhoods:
 
@@ -184,7 +193,11 @@ DAY 3  Minato · Akasaka 3             J-WAVE                   1 of 3
                                       クローフィッシュ赤坂        2 of 3   +12m train
 ```
 
-### What live mode had to fix
+One call per interest, run in parallel. A three-interest plan takes about 11 seconds cold and is
+instant afterwards (results cached 10 minutes per city). The UI shows the resolved signals and the
+call count.
+
+## What the data forced
 
 - **Wards are not days.** Grouping by ward produced a "day in Setagaya" with a 58-minute walk
   between stops. Places are clustered by distance instead, and anything past 1.2 km is reported as
@@ -195,7 +208,7 @@ DAY 3  Minato · Akasaka 3             J-WAVE                   1 of 3
   almost any query. Filtered out.
 - **Tags are not categories.** A place record carries ~100 loose audience tags, so "any tag contains
   book" matches a theatre. Qloo's `primary_genre` is the authoritative category and is what both the
-  relevance filter and the venue label now use.
+  relevance filter and the venue label use.
 - **Artist anchors only work for some interests.** "Haruki Murakami" returned churches and museums,
   not bookshops; "Radiohead" returned museums. Those interests now use a place-category tag
   (`urn:tag:category:place:book_store`), and `find_tags` results are filtered to prefer
@@ -204,47 +217,34 @@ DAY 3  Minato · Akasaka 3             J-WAVE                   1 of 3
 - **Long tails.** A 4% match is noise. Anything under 20 is dropped unless that leaves too little to
   build a day from.
 - **Losing the best place.** The district maths could skip a 100% match because its neighbourhood
-  scored badly. The single best place in the city now always anchors a day.
+  scored badly. The single best place in the city always anchors a day.
 - **Attribution.** One merged call returns better places but loses which interest surfaced them.
   Each interest gets its own call so "2 of 3" is true.
-
-## What is real, and what is not
-
-**Live mode (`QLOO_MODE=live`)** — everything that matters is real. Place names, addresses,
-coordinates, neighbourhoods, price levels and tags come from Qloo. The ranking is Qloo's. Nothing is
-hand-written.
-
-**Mock mode (`QLOO_MODE=mock`)** — the original offline demo. It uses a curated catalog of 42 real
-Tokyo venues whose *interest tags* are editorial. It exists so the app runs with no credential, and
-the badge says `LOCAL RANKING` when it does.
-
-The scheduling, routing, clustering and skip logic are the same code in both modes and can be
-inspected in `server/thread/engine.ts`.
 
 ## Event constraints, handled
 
 - **Key never in a browser.** All Qloo calls are server-side. No `VITE_` variables.
-- **No personal data.** Requests carry interest identifiers, never names. `server/qloo/sanitize.ts`
+- **No personal data.** Requests carry entity and tag identifiers, never names. `server/qloo/sanitize.ts`
   caps payloads at 40 options / 25 signals and refuses to dispatch a payload containing person-shaped
   fields.
 - **No serverless.** Long-running Node server, per the kit's deployment guidance.
-- **Small requests.** Rank responses cached for 10 minutes.
+- **Small requests.** Responses cached 10 minutes for plans, 30 minutes for city probes.
 
 ## Layout
 
 ```
 shared/cities.ts         110 cities + resolveCity (id, name, or free text)
-shared/thread.ts         types, interests, budgets, the Tokyo mock catalog
+shared/thread.ts         types, interests, budgets
 server/thread/engine.ts  scoring, window assignment, district choice, routing
-server/thread/discover.ts live discovery: signals, category tags, price rules
+server/thread/discover.ts signals, category tags, relevance and price rules
 server/thread/probe.ts   one-call city availability probe
 server/qloo/tags.ts      interest → tag URN, disk-cached
-server/qloo/            QlooPort + local adapter + live exec adapter + privacy guard
-server/index.ts         Express API, serves the built client
-src/                    React client
-scripts/smoke.ts        itinerary invariants
-scripts/cities-check.ts coverage sweep over the city list
-scripts/qloo-doctor.mjs live-mode diagnostic
+server/qloo/             QlooPort + exec adapter + privacy guard
+server/index.ts          Express API, serves the built client
+src/                     React client
+scripts/smoke.ts         itinerary invariants
+scripts/cities-check.ts  coverage sweep over the city list
+scripts/qloo-doctor.mjs  harness diagnostic
 ```
 
 ## Known limits
@@ -262,4 +262,3 @@ scripts/qloo-doctor.mjs live-mode diagnostic
   rather than made into a one-stop day. The skip list says so.
 - **First plan is slow.** About 11 seconds cold; each Qloo call is a separate CLI process.
 - **Clustering is greedy** and order-dependent when scores tie.
-- **Mock mode is Tokyo only.** The curated catalog is 42 real Tokyo venues; the city picker says so.
