@@ -836,9 +836,10 @@ button {
   letter-spacing: 0.04em;
 }
 
+/* The grid stays fully readable while the probe runs — dimming it made the
+   form feel frozen for the few seconds the city check takes. */
 .interest-grid.is-probing {
-  opacity: 0.55;
-  transition: opacity 160ms ease;
+  opacity: 1;
 }
 
 .interest-label {

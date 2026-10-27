@@ -21,10 +21,11 @@ export interface CityProbe {
 }
 
 /**
- * The insights endpoint rejects `--take` above ~55 with a 400, so 50 is the
- * widest sample that is safe. Verified: 50 works, 60 returns `400 Bad Request`.
+ * The insights endpoint rejects `--take` above ~55 with a 400. 30 is enough to
+ * rank twelve interests without making every probe parse a multi-megabyte
+ * payload on a small VM.
  */
-const TAKE = 50;
+const TAKE = 30;
 const TTL_MS = 30 * 60 * 1000;
 
 const cache = new Map<string, { at: number; value: CityProbe }>();

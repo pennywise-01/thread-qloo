@@ -2,6 +2,7 @@ import { mkdir, readFile, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import type { Interest } from '../../shared/thread';
 import type { QlooPort } from './port';
+import bundledTags from './interest-tags.json';
 
 /**
  * The query term used to resolve each interest to a Qloo tag.
@@ -60,6 +61,11 @@ let hydrated: Promise<void> | null = null;
 async function hydrate(): Promise<void> {
   if (hydrated) return hydrated;
   hydrated = (async () => {
+    // Shipped alongside the code: resolving twelve tags at runtime costs ~35s on
+    // a 2-vCPU VM, and the answer never changes. Refresh only fills gaps.
+    for (const [interest, tag] of Object.entries(bundledTags)) {
+      if (!memory.has(interest as Interest)) memory.set(interest as Interest, tag as InterestTag | null);
+    }
     try {
       const raw = await readFile(CACHE_FILE, 'utf8');
       const parsed = JSON.parse(raw) as Record<string, InterestTag | null>;
@@ -67,7 +73,7 @@ async function hydrate(): Promise<void> {
         if (!memory.has(interest as Interest)) memory.set(interest as Interest, tag);
       }
     } catch {
-      // No cache yet; resolvable on demand.
+      // No runtime cache; the bundled map is enough.
     }
   })();
   return hydrated;

@@ -4,6 +4,7 @@ import path from 'node:path';
 import { CITIES, resolveCity } from '../shared/cities';
 import { INTERESTS } from '../shared/thread';
 import { getQlooPort, qlooMode } from './qloo';
+import { allInterestTags } from './qloo/tags';
 import { checkRuntime } from './runtime-check';
 import { planThread, ThreadError } from './thread/engine';
 import { probeCity } from './thread/probe';
@@ -114,4 +115,13 @@ if (existsSync(clientDir)) {
 
 app.listen(port, () => {
   console.log(`Thread on http://localhost:${port} — ${mode === 'live' ? 'LIVE Qloo' : 'MOCK ranking'}`);
+
+  // Warm the caches in the background. Resolving twelve interest tags from
+  // scratch takes ~35s on a 2-vCPU box, and nobody should pay that on their
+  // first city selection.
+  void (async () => {
+    const qloo = getQlooPort();
+    await allInterestTags(qloo).catch(() => undefined);
+    await probeCity('Tokyo', qloo).catch(() => undefined);
+  })();
 });

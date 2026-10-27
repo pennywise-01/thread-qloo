@@ -1,0 +1,50 @@
+{
+  "jazz": {
+    "id": "urn:tag:genre:qloo:jazz",
+    "name": "Jazz"
+  },
+  "vintage": {
+    "id": "urn:tag:product_service:qloo:vintage_clothing",
+    "name": "Vintage Clothing"
+  },
+  "ramen": {
+    "id": "urn:tag:cuisine:qloo:ramen",
+    "name": "Ramen"
+  },
+  "art": {
+    "id": "urn:tag:amenity:qloo:art_gallery",
+    "name": "Art Gallery"
+  },
+  "vinyl": {
+    "id": "urn:tag:category:place:record_store",
+    "name": "Record store"
+  },
+  "film": {
+    "id": "urn:tag:setting:qloo:cinema",
+    "name": "Cinema"
+  },
+  "coffee": {
+    "id": "urn:tag:product_service:qloo:specialty_coffee",
+    "name": "Specialty Coffee"
+  },
+  "techno": {
+    "id": "urn:tag:subgenre:qloo:techno",
+    "name": "Techno"
+  },
+  "books": {
+    "id": "urn:tag:amenity:qloo:bookstore",
+    "name": "Bookstore"
+  },
+  "wine": {
+    "id": "urn:tag:cuisine:qloo:natural_wine",
+    "name": "Natural Wine"
+  },
+  "indie-rock": {
+    "id": "urn:tag:genre:music:indie_rock",
+    "name": " indie rock"
+  },
+  "design": {
+    "id": "urn:tag:core_value:qloo:design",
+    "name": "Design"
+  }
+}

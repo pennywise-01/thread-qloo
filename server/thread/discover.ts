@@ -205,10 +205,10 @@ export async function discoverPlaces(
   for (const entity of resolvedEntities) {
     tasks.push(
       port
-        .insights({ location: city, take: 25, signalEntities: [entity.id] })
+        .insights({ location: city, take: 18, signalEntities: [entity.id] })
         .then((response) => {
           calls += 1;
-          absorb(relevant(response.results, entity.interest), entity.interest, 25);
+          absorb(relevant(response.results, entity.interest), entity.interest, 18);
         }),
     );
   }
@@ -220,13 +220,13 @@ export async function discoverPlaces(
       port
         .insights({
           location: city,
-          take: 20,
+          take: 15,
           filterTags: [tag.id],
           signalEntities: entityIds.length > 0 ? entityIds : undefined,
         })
         .then((response) => {
           calls += 1;
-          absorb(relevant(response.results, entry.interest), entry.interest, 20);
+          absorb(relevant(response.results, entry.interest), entry.interest, 15);
         }),
     );
   }
