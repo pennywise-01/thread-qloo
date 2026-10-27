@@ -5,7 +5,7 @@
   "type": "module",
   "description": "One thread through a city: a Qloo-grounded itinerary for a person, not a list.",
   "engines": {
-    "node": ">=22.19.0"
+    "node": ">=22.23.4"
   },
   "scripts": {
     "dev": "concurrently -n server,client -c cyan,magenta \"tsx watch server/index.ts\" \"vite\"",

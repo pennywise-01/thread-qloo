@@ -4,6 +4,7 @@ import path from 'node:path';
 import { CITIES, resolveCity } from '../shared/cities';
 import { INTERESTS } from '../shared/thread';
 import { getQlooPort, qlooMode } from './qloo';
+import { checkRuntime } from './runtime-check';
 import { planThread, ThreadError } from './thread/engine';
 import { probeCity } from './thread/probe';
 
@@ -12,6 +13,8 @@ try {
 } catch {
   // No .env file. Environment variables from the shell are used instead.
 }
+
+checkRuntime();
 
 const app = express();
 const port = Number(process.env.PORT ?? 8787);

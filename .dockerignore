@@ -1,0 +1,13 @@
+node_modules
+dist
+.git
+.gitignore
+
+# Secrets — passed at runtime, never baked into an image layer
+.env
+.env.local
+
+.commandcode
+.cache
+reports
+*.log
