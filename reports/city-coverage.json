@@ -1,0 +1,1124 @@
+{
+  "generatedAt": "2026-10-27T15:32:29.376Z",
+  "probe": {
+    "minSample": 10,
+    "minInterests": 3
+  },
+  "total": 120,
+  "completed": 120,
+  "thin": [
+    "copenhagen",
+    "reykjavik",
+    "edinburgh",
+    "athens",
+    "seville",
+    "beijing",
+    "shanghai",
+    "chengdu",
+    "colombo",
+    "tashkent",
+    "cairo",
+    "alexandria",
+    "casablanca",
+    "marrakech",
+    "tunis",
+    "dakar",
+    "accra",
+    "addis-ababa",
+    "kigali",
+    "johannesburg",
+    "kampala",
+    "jerusalem",
+    "beirut",
+    "abu-dhabi",
+    "doha",
+    "muscat",
+    "riyadh",
+    "perth",
+    "wellington",
+    "nadi",
+    "port-moresby"
+  ],
+  "cities": [
+    {
+      "id": "london",
+      "name": "London",
+      "country": "United Kingdom",
+      "sampled": 50,
+      "interestsWithSupply": 11,
+      "top": "art 22, coffee 20, wine 18",
+      "thin": false
+    },
+    {
+      "id": "berlin",
+      "name": "Berlin",
+      "country": "Germany",
+      "sampled": 50,
+      "interestsWithSupply": 11,
+      "top": "art 20, wine 17, coffee 15",
+      "thin": false
+    },
+    {
+      "id": "paris",
+      "name": "Paris",
+      "country": "France",
+      "sampled": 50,
+      "interestsWithSupply": 10,
+      "top": "books 30, coffee 15, wine 14",
+      "thin": false
+    },
+    {
+      "id": "madrid",
+      "name": "Madrid",
+      "country": "Spain",
+      "sampled": 50,
+      "interestsWithSupply": 10,
+      "top": "coffee 27, wine 24, ramen 16",
+      "thin": false
+    },
+    {
+      "id": "rome",
+      "name": "Rome",
+      "country": "Italy",
+      "sampled": 50,
+      "interestsWithSupply": 11,
+      "top": "wine 32, coffee 26, art 16",
+      "thin": false
+    },
+    {
+      "id": "barcelona",
+      "name": "Barcelona",
+      "country": "Spain",
+      "sampled": 50,
+      "interestsWithSupply": 10,
+      "top": "wine 32, coffee 31, ramen 29",
+      "thin": false
+    },
+    {
+      "id": "venice",
+      "name": "Venice",
+      "country": "Italy",
+      "sampled": 10,
+      "interestsWithSupply": 6,
+      "top": "art 5, books 5, wine 2",
+      "thin": false
+    },
+    {
+      "id": "milan",
+      "name": "Milan",
+      "country": "Italy",
+      "sampled": 50,
+      "interestsWithSupply": 10,
+      "top": "books 22, wine 22, coffee 20",
+      "thin": false
+    },
+    {
+      "id": "amsterdam",
+      "name": "Amsterdam",
+      "country": "Netherlands",
+      "sampled": 50,
+      "interestsWithSupply": 11,
+      "top": "coffee 29, wine 25, ramen 17",
+      "thin": false
+    },
+    {
+      "id": "brussels",
+      "name": "Brussels",
+      "country": "Belgium",
+      "sampled": 30,
+      "interestsWithSupply": 9,
+      "top": "coffee 20, wine 19, ramen 15",
+      "thin": false
+    },
+    {
+      "id": "vienna",
+      "name": "Vienna",
+      "country": "Austria",
+      "sampled": 37,
+      "interestsWithSupply": 10,
+      "top": "wine 28, coffee 25, ramen 21",
+      "thin": false
+    },
+    {
+      "id": "prague",
+      "name": "Prague",
+      "country": "Czechia",
+      "sampled": 50,
+      "interestsWithSupply": 10,
+      "top": "coffee 35, wine 31, art 28",
+      "thin": false
+    },
+    {
+      "id": "budapest",
+      "name": "Budapest",
+      "country": "Hungary",
+      "sampled": 37,
+      "interestsWithSupply": 9,
+      "top": "coffee 21, wine 21, art 15",
+      "thin": false
+    },
+    {
+      "id": "warsaw",
+      "name": "Warsaw",
+      "country": "Poland",
+      "sampled": 50,
+      "interestsWithSupply": 11,
+      "top": "coffee 38, wine 34, ramen 28",
+      "thin": false
+    },
+    {
+      "id": "krakow",
+      "name": "Krakow",
+      "country": "Poland",
+      "sampled": 34,
+      "interestsWithSupply": 8,
+      "top": "coffee 28, wine 25, ramen 20",
+      "thin": false
+    },
+    {
+      "id": "copenhagen",
+      "name": "Copenhagen",
+      "country": "Denmark",
+      "sampled": 0,
+      "interestsWithSupply": 0,
+      "top": "—",
+      "thin": true
+    },
+    {
+      "id": "stockholm",
+      "name": "Stockholm",
+      "country": "Sweden",
+      "sampled": 50,
+      "interestsWithSupply": 8,
+      "top": "ramen 32, coffee 26, wine 22",
+      "thin": false
+    },
+    {
+      "id": "oslo",
+      "name": "Oslo",
+      "country": "Norway",
+      "sampled": 30,
+      "interestsWithSupply": 8,
+      "top": "coffee 12, art 9, books 8",
+      "thin": false
+    },
+    {
+      "id": "helsinki",
+      "name": "Helsinki",
+      "country": "Finland",
+      "sampled": 15,
+      "interestsWithSupply": 7,
+      "top": "art 10, coffee 7, wine 4",
+      "thin": false
+    },
+    {
+      "id": "dublin",
+      "name": "Dublin",
+      "country": "Ireland",
+      "sampled": 36,
+      "interestsWithSupply": 11,
+      "top": "wine 23, coffee 20, ramen 17",
+      "thin": false
+    },
+    {
+      "id": "reykjavik",
+      "name": "Reykjavik",
+      "country": "Iceland",
+      "sampled": 9,
+      "interestsWithSupply": 7,
+      "top": "coffee 6, wine 4, vintage 3",
+      "thin": true
+    },
+    {
+      "id": "edinburgh",
+      "name": "Edinburgh",
+      "country": "United Kingdom",
+      "sampled": 0,
+      "interestsWithSupply": 0,
+      "top": "—",
+      "thin": true
+    },
+    {
+      "id": "lisbon",
+      "name": "Lisbon",
+      "country": "Portugal",
+      "sampled": 50,
+      "interestsWithSupply": 9,
+      "top": "wine 27, coffee 24, art 16",
+      "thin": false
+    },
+    {
+      "id": "porto",
+      "name": "Porto",
+      "country": "Portugal",
+      "sampled": 19,
+      "interestsWithSupply": 8,
+      "top": "art 10, wine 10, coffee 9",
+      "thin": false
+    },
+    {
+      "id": "athens",
+      "name": "Athens",
+      "country": "Greece",
+      "sampled": 4,
+      "interestsWithSupply": 6,
+      "top": "coffee 2, books 2, vinyl 1",
+      "thin": true
+    },
+    {
+      "id": "istanbul",
+      "name": "Istanbul",
+      "country": "Turkey",
+      "sampled": 50,
+      "interestsWithSupply": 11,
+      "top": "books 36, vinyl 20, coffee 17",
+      "thin": false
+    },
+    {
+      "id": "munich",
+      "name": "Munich",
+      "country": "Germany",
+      "sampled": 29,
+      "interestsWithSupply": 10,
+      "top": "ramen 20, wine 18, coffee 17",
+      "thin": false
+    },
+    {
+      "id": "zurich",
+      "name": "Zurich",
+      "country": "Switzerland",
+      "sampled": 29,
+      "interestsWithSupply": 8,
+      "top": "coffee 23, wine 23, ramen 15",
+      "thin": false
+    },
+    {
+      "id": "naples",
+      "name": "Naples",
+      "country": "Italy",
+      "sampled": 25,
+      "interestsWithSupply": 9,
+      "top": "art 15, wine 13, coffee 12",
+      "thin": false
+    },
+    {
+      "id": "seville",
+      "name": "Seville",
+      "country": "Spain",
+      "sampled": 7,
+      "interestsWithSupply": 7,
+      "top": "art 3, wine 3, coffee 2",
+      "thin": true
+    },
+    {
+      "id": "new-york",
+      "name": "New York",
+      "country": "United States",
+      "sampled": 50,
+      "interestsWithSupply": 9,
+      "top": "books 24, coffee 17, art 17",
+      "thin": false
+    },
+    {
+      "id": "los-angeles",
+      "name": "Los Angeles",
+      "country": "United States",
+      "sampled": 50,
+      "interestsWithSupply": 10,
+      "top": "coffee 19, books 17, ramen 17",
+      "thin": false
+    },
+    {
+      "id": "chicago",
+      "name": "Chicago",
+      "country": "United States",
+      "sampled": 50,
+      "interestsWithSupply": 12,
+      "top": "wine 21, coffee 18, art 18",
+      "thin": false
+    },
+    {
+      "id": "san-francisco",
+      "name": "San Francisco",
+      "country": "United States",
+      "sampled": 50,
+      "interestsWithSupply": 11,
+      "top": "wine 27, ramen 25, coffee 20",
+      "thin": false
+    },
+    {
+      "id": "seattle",
+      "name": "Seattle",
+      "country": "United States",
+      "sampled": 47,
+      "interestsWithSupply": 9,
+      "top": "coffee 28, wine 23, art 17",
+      "thin": false
+    },
+    {
+      "id": "portland",
+      "name": "Portland",
+      "country": "United States",
+      "sampled": 37,
+      "interestsWithSupply": 10,
+      "top": "ramen 21, wine 17, coffee 14",
+      "thin": false
+    },
+    {
+      "id": "boston",
+      "name": "Boston",
+      "country": "United States",
+      "sampled": 43,
+      "interestsWithSupply": 10,
+      "top": "ramen 25, coffee 21, wine 21",
+      "thin": false
+    },
+    {
+      "id": "miami",
+      "name": "Miami",
+      "country": "United States",
+      "sampled": 23,
+      "interestsWithSupply": 9,
+      "top": "art 12, coffee 9, wine 8",
+      "thin": false
+    },
+    {
+      "id": "austin",
+      "name": "Austin",
+      "country": "United States",
+      "sampled": 38,
+      "interestsWithSupply": 10,
+      "top": "wine 24, coffee 19, ramen 18",
+      "thin": false
+    },
+    {
+      "id": "new-orleans",
+      "name": "New Orleans",
+      "country": "United States",
+      "sampled": 23,
+      "interestsWithSupply": 8,
+      "top": "wine 11, coffee 8, art 8",
+      "thin": false
+    },
+    {
+      "id": "nashville",
+      "name": "Nashville",
+      "country": "United States",
+      "sampled": 21,
+      "interestsWithSupply": 10,
+      "top": "coffee 7, vinyl 7, ramen 6",
+      "thin": false
+    },
+    {
+      "id": "denver",
+      "name": "Denver",
+      "country": "United States",
+      "sampled": 50,
+      "interestsWithSupply": 9,
+      "top": "wine 28, ramen 27, coffee 23",
+      "thin": false
+    },
+    {
+      "id": "toronto",
+      "name": "Toronto",
+      "country": "Canada",
+      "sampled": 50,
+      "interestsWithSupply": 9,
+      "top": "ramen 30, wine 28, coffee 20",
+      "thin": false
+    },
+    {
+      "id": "vancouver",
+      "name": "Vancouver",
+      "country": "Canada",
+      "sampled": 39,
+      "interestsWithSupply": 11,
+      "top": "ramen 21, wine 21, coffee 20",
+      "thin": false
+    },
+    {
+      "id": "montreal",
+      "name": "Montreal",
+      "country": "Canada",
+      "sampled": 46,
+      "interestsWithSupply": 10,
+      "top": "ramen 23, wine 23, coffee 19",
+      "thin": false
+    },
+    {
+      "id": "mexico-city",
+      "name": "Mexico City",
+      "country": "Mexico",
+      "sampled": 50,
+      "interestsWithSupply": 11,
+      "top": "books 26, coffee 23, wine 15",
+      "thin": false
+    },
+    {
+      "id": "guadalajara",
+      "name": "Guadalajara",
+      "country": "Mexico",
+      "sampled": 50,
+      "interestsWithSupply": 9,
+      "top": "coffee 32, ramen 24, wine 22",
+      "thin": false
+    },
+    {
+      "id": "oaxaca",
+      "name": "Oaxaca",
+      "country": "Mexico",
+      "sampled": 21,
+      "interestsWithSupply": 8,
+      "top": "coffee 18, art 15, wine 11",
+      "thin": false
+    },
+    {
+      "id": "bogota",
+      "name": "Bogota",
+      "country": "Colombia",
+      "sampled": 50,
+      "interestsWithSupply": 12,
+      "top": "coffee 33, wine 25, ramen 18",
+      "thin": false
+    },
+    {
+      "id": "lima",
+      "name": "Lima",
+      "country": "Peru",
+      "sampled": 41,
+      "interestsWithSupply": 9,
+      "top": "ramen 21, coffee 17, art 13",
+      "thin": false
+    },
+    {
+      "id": "santiago",
+      "name": "Santiago",
+      "country": "Chile",
+      "sampled": 11,
+      "interestsWithSupply": 9,
+      "top": "coffee 7, ramen 6, wine 6",
+      "thin": false
+    },
+    {
+      "id": "medellin",
+      "name": "Medellin",
+      "country": "Colombia",
+      "sampled": 24,
+      "interestsWithSupply": 10,
+      "top": "coffee 17, wine 14, books 9",
+      "thin": false
+    },
+    {
+      "id": "buenos-aires",
+      "name": "Buenos Aires",
+      "country": "Argentina",
+      "sampled": 50,
+      "interestsWithSupply": 10,
+      "top": "art 21, books 21, wine 16",
+      "thin": false
+    },
+    {
+      "id": "sao-paulo",
+      "name": "Sao Paulo",
+      "country": "Brazil",
+      "sampled": 50,
+      "interestsWithSupply": 10,
+      "top": "coffee 28, wine 19, books 18",
+      "thin": false
+    },
+    {
+      "id": "rio-de-janeiro",
+      "name": "Rio de Janeiro",
+      "country": "Brazil",
+      "sampled": 34,
+      "interestsWithSupply": 9,
+      "top": "books 21, coffee 10, art 10",
+      "thin": false
+    },
+    {
+      "id": "osaka",
+      "name": "Osaka",
+      "country": "Japan",
+      "sampled": 50,
+      "interestsWithSupply": 6,
+      "top": "ramen 42, coffee 29, wine 14",
+      "thin": false
+    },
+    {
+      "id": "kyoto",
+      "name": "Kyoto",
+      "country": "Japan",
+      "sampled": 50,
+      "interestsWithSupply": 11,
+      "top": "ramen 45, coffee 33, wine 25",
+      "thin": false
+    },
+    {
+      "id": "tokyo",
+      "name": "Tokyo",
+      "country": "Japan",
+      "sampled": 50,
+      "interestsWithSupply": 10,
+      "top": "coffee 29, ramen 23, books 17",
+      "thin": false
+    },
+    {
+      "id": "seoul",
+      "name": "Seoul",
+      "country": "South Korea",
+      "sampled": 50,
+      "interestsWithSupply": 8,
+      "top": "coffee 30, wine 25, ramen 24",
+      "thin": false
+    },
+    {
+      "id": "busan",
+      "name": "Busan",
+      "country": "South Korea",
+      "sampled": 33,
+      "interestsWithSupply": 8,
+      "top": "ramen 21, coffee 11, art 7",
+      "thin": false
+    },
+    {
+      "id": "beijing",
+      "name": "Beijing",
+      "country": "China",
+      "sampled": 2,
+      "interestsWithSupply": 5,
+      "top": "coffee 2, art 1, books 1",
+      "thin": true
+    },
+    {
+      "id": "shanghai",
+      "name": "Shanghai",
+      "country": "China",
+      "sampled": 0,
+      "interestsWithSupply": 0,
+      "top": "—",
+      "thin": true
+    },
+    {
+      "id": "chengdu",
+      "name": "Chengdu",
+      "country": "China",
+      "sampled": 0,
+      "interestsWithSupply": 0,
+      "top": "—",
+      "thin": true
+    },
+    {
+      "id": "hong-kong",
+      "name": "Hong Kong",
+      "country": "Hong Kong",
+      "sampled": 50,
+      "interestsWithSupply": 10,
+      "top": "ramen 40, coffee 34, wine 24",
+      "thin": false
+    },
+    {
+      "id": "taipei",
+      "name": "Taipei",
+      "country": "Taiwan",
+      "sampled": 50,
+      "interestsWithSupply": 8,
+      "top": "ramen 41, coffee 36, wine 31",
+      "thin": false
+    },
+    {
+      "id": "singapore",
+      "name": "Singapore",
+      "country": "Singapore",
+      "sampled": 50,
+      "interestsWithSupply": 8,
+      "top": "ramen 31, coffee 23, wine 17",
+      "thin": false
+    },
+    {
+      "id": "bangkok",
+      "name": "Bangkok",
+      "country": "Thailand",
+      "sampled": 50,
+      "interestsWithSupply": 8,
+      "top": "coffee 27, ramen 24, art 17",
+      "thin": false
+    },
+    {
+      "id": "chiang-mai",
+      "name": "Chiang Mai",
+      "country": "Thailand",
+      "sampled": 23,
+      "interestsWithSupply": 9,
+      "top": "coffee 14, ramen 11, art 8",
+      "thin": false
+    },
+    {
+      "id": "hanoi",
+      "name": "Hanoi",
+      "country": "Vietnam",
+      "sampled": 12,
+      "interestsWithSupply": 7,
+      "top": "ramen 8, coffee 6, wine 5",
+      "thin": false
+    },
+    {
+      "id": "ho-chi-minh-city",
+      "name": "Ho Chi Minh City",
+      "country": "Vietnam",
+      "sampled": 35,
+      "interestsWithSupply": 8,
+      "top": "ramen 24, coffee 21, wine 12",
+      "thin": false
+    },
+    {
+      "id": "phnom-penh",
+      "name": "Phnom Penh",
+      "country": "Cambodia",
+      "sampled": 10,
+      "interestsWithSupply": 4,
+      "top": "ramen 9, wine 5, coffee 4",
+      "thin": false
+    },
+    {
+      "id": "kuala-lumpur",
+      "name": "Kuala Lumpur",
+      "country": "Malaysia",
+      "sampled": 50,
+      "interestsWithSupply": 9,
+      "top": "coffee 34, ramen 33, books 14",
+      "thin": false
+    },
+    {
+      "id": "jakarta",
+      "name": "Jakarta",
+      "country": "Indonesia",
+      "sampled": 50,
+      "interestsWithSupply": 11,
+      "top": "coffee 33, ramen 32, wine 17",
+      "thin": false
+    },
+    {
+      "id": "denpasar",
+      "name": "Denpasar",
+      "country": "Indonesia",
+      "sampled": 10,
+      "interestsWithSupply": 5,
+      "top": "ramen 9, coffee 7, wine 4",
+      "thin": false
+    },
+    {
+      "id": "manila",
+      "name": "Manila",
+      "country": "Philippines",
+      "sampled": 41,
+      "interestsWithSupply": 8,
+      "top": "ramen 34, coffee 25, wine 15",
+      "thin": false
+    },
+    {
+      "id": "delhi",
+      "name": "Delhi",
+      "country": "India",
+      "sampled": 32,
+      "interestsWithSupply": 8,
+      "top": "books 16, art 12, coffee 9",
+      "thin": false
+    },
+    {
+      "id": "mumbai",
+      "name": "Mumbai",
+      "country": "India",
+      "sampled": 21,
+      "interestsWithSupply": 9,
+      "top": "art 9, books 9, coffee 6",
+      "thin": false
+    },
+    {
+      "id": "bangalore",
+      "name": "Bangalore",
+      "country": "India",
+      "sampled": 25,
+      "interestsWithSupply": 9,
+      "top": "coffee 12, art 9, wine 9",
+      "thin": false
+    },
+    {
+      "id": "kolkata",
+      "name": "Kolkata",
+      "country": "India",
+      "sampled": 14,
+      "interestsWithSupply": 8,
+      "top": "books 8, art 7, film 3",
+      "thin": false
+    },
+    {
+      "id": "colombo",
+      "name": "Colombo",
+      "country": "Sri Lanka",
+      "sampled": 7,
+      "interestsWithSupply": 6,
+      "top": "coffee 4, ramen 3, wine 3",
+      "thin": true
+    },
+    {
+      "id": "kathmandu",
+      "name": "Kathmandu",
+      "country": "Nepal",
+      "sampled": 10,
+      "interestsWithSupply": 7,
+      "top": "coffee 7, wine 6, ramen 4",
+      "thin": false
+    },
+    {
+      "id": "dhaka",
+      "name": "Dhaka",
+      "country": "Bangladesh",
+      "sampled": 12,
+      "interestsWithSupply": 6,
+      "top": "coffee 7, art 6, books 5",
+      "thin": false
+    },
+    {
+      "id": "tashkent",
+      "name": "Tashkent",
+      "country": "Uzbekistan",
+      "sampled": 1,
+      "interestsWithSupply": 4,
+      "top": "coffee 1, ramen 1, wine 1",
+      "thin": true
+    },
+    {
+      "id": "almaty",
+      "name": "Almaty",
+      "country": "Kazakhstan",
+      "sampled": 12,
+      "interestsWithSupply": 8,
+      "top": "coffee 9, ramen 8, wine 7",
+      "thin": false
+    },
+    {
+      "id": "ulaanbaatar",
+      "name": "Ulaanbaatar",
+      "country": "Mongolia",
+      "sampled": 11,
+      "interestsWithSupply": 5,
+      "top": "coffee 11, ramen 9, wine 6",
+      "thin": false
+    },
+    {
+      "id": "cairo",
+      "name": "Cairo",
+      "country": "Egypt",
+      "sampled": 9,
+      "interestsWithSupply": 7,
+      "top": "books 7, coffee 4, art 3",
+      "thin": true
+    },
+    {
+      "id": "alexandria",
+      "name": "Alexandria",
+      "country": "Egypt",
+      "sampled": 0,
+      "interestsWithSupply": 0,
+      "top": "—",
+      "thin": true
+    },
+    {
+      "id": "casablanca",
+      "name": "Casablanca",
+      "country": "Morocco",
+      "sampled": 2,
+      "interestsWithSupply": 3,
+      "top": "coffee 1, art 1, ramen 1",
+      "thin": true
+    },
+    {
+      "id": "marrakech",
+      "name": "Marrakech",
+      "country": "Morocco",
+      "sampled": 4,
+      "interestsWithSupply": 6,
+      "top": "coffee 3, art 2, wine 2",
+      "thin": true
+    },
+    {
+      "id": "tunis",
+      "name": "Tunis",
+      "country": "Tunisia",
+      "sampled": 2,
+      "interestsWithSupply": 2,
+      "top": "ramen 2, wine 1",
+      "thin": true
+    },
+    {
+      "id": "dakar",
+      "name": "Dakar",
+      "country": "Senegal",
+      "sampled": 4,
+      "interestsWithSupply": 5,
+      "top": "coffee 4, art 3, wine 2",
+      "thin": true
+    },
+    {
+      "id": "accra",
+      "name": "Accra",
+      "country": "Ghana",
+      "sampled": 9,
+      "interestsWithSupply": 6,
+      "top": "art 7, books 3, wine 3",
+      "thin": true
+    },
+    {
+      "id": "lagos",
+      "name": "Lagos",
+      "country": "Nigeria",
+      "sampled": 16,
+      "interestsWithSupply": 10,
+      "top": "books 9, art 8, coffee 7",
+      "thin": false
+    },
+    {
+      "id": "addis-ababa",
+      "name": "Addis Ababa",
+      "country": "Ethiopia",
+      "sampled": 0,
+      "interestsWithSupply": 0,
+      "top": "—",
+      "thin": true
+    },
+    {
+      "id": "nairobi",
+      "name": "Nairobi",
+      "country": "Kenya",
+      "sampled": 15,
+      "interestsWithSupply": 8,
+      "top": "art 10, coffee 8, wine 8",
+      "thin": false
+    },
+    {
+      "id": "kigali",
+      "name": "Kigali",
+      "country": "Rwanda",
+      "sampled": 1,
+      "interestsWithSupply": 3,
+      "top": "coffee 1, books 1, wine 1",
+      "thin": true
+    },
+    {
+      "id": "cape-town",
+      "name": "Cape Town",
+      "country": "South Africa",
+      "sampled": 32,
+      "interestsWithSupply": 10,
+      "top": "coffee 24, wine 19, art 18",
+      "thin": false
+    },
+    {
+      "id": "johannesburg",
+      "name": "Johannesburg",
+      "country": "South Africa",
+      "sampled": 0,
+      "interestsWithSupply": 0,
+      "top": "—",
+      "thin": true
+    },
+    {
+      "id": "kampala",
+      "name": "Kampala",
+      "country": "Uganda",
+      "sampled": 2,
+      "interestsWithSupply": 6,
+      "top": "coffee 1, art 1, books 1",
+      "thin": true
+    },
+    {
+      "id": "tel-aviv",
+      "name": "Tel Aviv",
+      "country": "Israel",
+      "sampled": 15,
+      "interestsWithSupply": 8,
+      "top": "art 8, wine 8, coffee 7",
+      "thin": false
+    },
+    {
+      "id": "zanzibar-city",
+      "name": "Zanzibar City",
+      "country": "Tanzania",
+      "sampled": 50,
+      "interestsWithSupply": 11,
+      "top": "books 26, coffee 23, wine 15",
+      "thin": false
+    },
+    {
+      "id": "jerusalem",
+      "name": "Jerusalem",
+      "country": "Israel",
+      "sampled": 7,
+      "interestsWithSupply": 6,
+      "top": "coffee 5, art 5, wine 4",
+      "thin": true
+    },
+    {
+      "id": "amman",
+      "name": "Amman",
+      "country": "Jordan",
+      "sampled": 13,
+      "interestsWithSupply": 6,
+      "top": "coffee 9, art 9, books 5",
+      "thin": false
+    },
+    {
+      "id": "beirut",
+      "name": "Beirut",
+      "country": "Lebanon",
+      "sampled": 4,
+      "interestsWithSupply": 7,
+      "top": "art 2, wine 2, film 2",
+      "thin": true
+    },
+    {
+      "id": "dubai",
+      "name": "Dubai",
+      "country": "United Arab Emirates",
+      "sampled": 23,
+      "interestsWithSupply": 8,
+      "top": "coffee 19, ramen 12, art 9",
+      "thin": false
+    },
+    {
+      "id": "abu-dhabi",
+      "name": "Abu Dhabi",
+      "country": "United Arab Emirates",
+      "sampled": 7,
+      "interestsWithSupply": 7,
+      "top": "coffee 6, art 3, ramen 3",
+      "thin": true
+    },
+    {
+      "id": "doha",
+      "name": "Doha",
+      "country": "Qatar",
+      "sampled": 3,
+      "interestsWithSupply": 5,
+      "top": "art 2, coffee 1, ramen 1",
+      "thin": true
+    },
+    {
+      "id": "muscat",
+      "name": "Muscat",
+      "country": "Oman",
+      "sampled": 2,
+      "interestsWithSupply": 5,
+      "top": "books 2, coffee 1, art 1",
+      "thin": true
+    },
+    {
+      "id": "riyadh",
+      "name": "Riyadh",
+      "country": "Saudi Arabia",
+      "sampled": 0,
+      "interestsWithSupply": 0,
+      "top": "—",
+      "thin": true
+    },
+    {
+      "id": "tehran",
+      "name": "Tehran",
+      "country": "Iran",
+      "sampled": 18,
+      "interestsWithSupply": 7,
+      "top": "books 11, coffee 9, art 7",
+      "thin": false
+    },
+    {
+      "id": "melbourne",
+      "name": "Melbourne",
+      "country": "Australia",
+      "sampled": 50,
+      "interestsWithSupply": 10,
+      "top": "ramen 22, coffee 20, art 18",
+      "thin": false
+    },
+    {
+      "id": "sydney",
+      "name": "Sydney",
+      "country": "Australia",
+      "sampled": 50,
+      "interestsWithSupply": 11,
+      "top": "wine 31, ramen 28, coffee 27",
+      "thin": false
+    },
+    {
+      "id": "brisbane",
+      "name": "Brisbane",
+      "country": "Australia",
+      "sampled": 47,
+      "interestsWithSupply": 8,
+      "top": "ramen 35, wine 22, coffee 21",
+      "thin": false
+    },
+    {
+      "id": "perth",
+      "name": "Perth",
+      "country": "Australia",
+      "sampled": 0,
+      "interestsWithSupply": 0,
+      "top": "—",
+      "thin": true
+    },
+    {
+      "id": "auckland",
+      "name": "Auckland",
+      "country": "New Zealand",
+      "sampled": 39,
+      "interestsWithSupply": 7,
+      "top": "ramen 25, wine 16, coffee 14",
+      "thin": false
+    },
+    {
+      "id": "wellington",
+      "name": "Wellington",
+      "country": "New Zealand",
+      "sampled": 7,
+      "interestsWithSupply": 6,
+      "top": "wine 5, coffee 4, ramen 4",
+      "thin": true
+    },
+    {
+      "id": "christchurch",
+      "name": "Christchurch",
+      "country": "New Zealand",
+      "sampled": 16,
+      "interestsWithSupply": 8,
+      "top": "ramen 11, coffee 8, wine 7",
+      "thin": false
+    },
+    {
+      "id": "nadi",
+      "name": "Nadi",
+      "country": "Fiji",
+      "sampled": 0,
+      "interestsWithSupply": 0,
+      "top": "—",
+      "thin": true
+    },
+    {
+      "id": "honolulu",
+      "name": "Honolulu",
+      "country": "United States",
+      "sampled": 25,
+      "interestsWithSupply": 8,
+      "top": "ramen 16, wine 10, coffee 9",
+      "thin": false
+    },
+    {
+      "id": "port-moresby",
+      "name": "Port Moresby",
+      "country": "Papua New Guinea",
+      "sampled": 3,
+      "interestsWithSupply": 5,
+      "top": "coffee 2, ramen 2, wine 2",
+      "thin": true
+    }
+  ]
+}
