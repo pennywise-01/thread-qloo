@@ -13,6 +13,3 @@ dist/
 .vscode/
 .idea/
 *.tsbuildinfo
-
-# Stray redirect artifacts
-{}
